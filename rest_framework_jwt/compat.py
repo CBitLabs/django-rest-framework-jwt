@@ -154,10 +154,4 @@ def get_custom_user_identifier(user):
 
 
 def get_request_data(request):
-    if getattr(request, 'data', None):
-        data = request.data
-    else:
-        # DRF < 3.2
-        data = request.DATA
-
-    return data
+    return getattr(request, 'data', None)
